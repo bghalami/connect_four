@@ -2,16 +2,9 @@ require "pry"
 require "./lib/piece"
 
 class Bag
-  attr_accessor :xs, :os
+  attr_accessor :x, :o
   def initialize
-    @xs = []
-    @os = []
-  end
-
-  def new_bag
-    21.times do
-      @xs << Piece.new("X")
-      @os << Piece.new("O")
-    end
+    @x = Piece.new("X")
+    @o = Piece.new("O")
   end
 end

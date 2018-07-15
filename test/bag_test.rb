@@ -12,11 +12,8 @@ class BagTest < Minitest::Test
 
   def test_it_adds_pieces
     bag = Bag.new
-    bag.new_bag
 
-    assert_equal 21, bag.xs.count
-    assert_equal 21, bag.os.count
-    assert_instance_of Piece, bag.xs[0]
-    assert_instance_of Piece, bag.os[0]
+    assert_instance_of Piece, bag.x
+    assert_instance_of Piece, bag.o
   end
 end

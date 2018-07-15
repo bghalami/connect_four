@@ -1,5 +1,5 @@
 require "pry"
-require "./lib/space"
+require "./lib/bag"
 
 class Board
   attr_accessor :title_row,
@@ -8,7 +8,8 @@ class Board
                 :row_three,
                 :row_four,
                 :row_five,
-                :row_six
+                :row_six,
+                :a_to_num
 
   def initialize
     @title_row = ["A","B","C","D","E","F","G"]
@@ -38,13 +39,4 @@ class Board
     puts "#{@row_five.join}"
     puts "#{@row_six.join}"
   end
-
-  def get_move
-    puts "Enter a letter(A-G) to place piece!"
-    gets.chomp.upcase
-  end
 end
-
-
-board = Board.new
-binding.pry
