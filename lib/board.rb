@@ -1,5 +1,4 @@
 require "pry"
-require "./lib/bag"
 
 class Board
   attr_accessor :title_row,

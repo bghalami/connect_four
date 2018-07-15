@@ -7,7 +7,6 @@ class GamePlay
   attr_accessor :board, :move_counter
   def initialize
     @move_counter = 0
-    # @bag = Bag.new
     @board = Board.new
   end
 
