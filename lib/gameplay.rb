@@ -4,10 +4,10 @@ require "./lib/computer"
 
 
 class GamePlay
-  attr_accessor :board, :move_counter
+  attr_accessor :game_board, :move_counter
   def initialize
     @move_counter = 0
-    @board = Board.new
+    @game_board = Board.new
   end
 
   def get_move
@@ -17,7 +17,7 @@ class GamePlay
   end
 
   def move_value(move)
-    value = @board.a_to_num[move]
+    value = @game_board.a_to_num[move]
   end
 
   def x_or_o
@@ -28,28 +28,18 @@ class GamePlay
     end
   end
 
+  def round_n_round(number,drop_move)
+    if @game_board.board[number][drop_move] == "."
+      @game_board.board[number][drop_move] = x_or_o
+    else
+      round_n_round(number - 1,drop_move)
+    end
+  end
 
   def drop_piece
     move = get_move
-
-    if @board.row_six[move] == "."
-      @board.row_six[move] = x_or_o
-    elsif @board.row_five[move] == "."
-      @board.row_five[move] = x_or_o
-    elsif @board.row_four[move] == "."
-      @board.row_four[move] = x_or_o
-    elsif @board.row_three[move] == "."
-      @board.row_three[move] = x_or_o
-    elsif @board.row_two[move] == "."
-      @board.row_two[move] = x_or_o
-    elsif @board.row_one[move] == "."
-      @board.row_one[move] = x_or_o
-    else
-      puts "Invalid move. Try again."
-    end
-
+    round_n_round(6, move)
     @move_counter += 1
-    @board.see_board
   end
 
 end
