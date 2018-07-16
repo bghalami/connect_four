@@ -4,7 +4,9 @@ require "./lib/computer"
 
 
 class GamePlay
+
   attr_accessor :game_board, :move_counter
+
   def initialize
     @move_counter = 0
     @game_board = Board.new
