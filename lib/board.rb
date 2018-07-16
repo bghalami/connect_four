@@ -12,6 +12,7 @@ class Board
             [".",".",".",".",".",".","."],
             [".",".",".",".",".",".","."],
             [".",".",".",".",".",".","."]]
+
     @a_to_num = {
       "A" => 0,
       "B" => 1,
@@ -21,6 +22,7 @@ class Board
       "F" => 5,
       "G" => 6
     }
+
   end
 
   def see_board
@@ -32,4 +34,5 @@ class Board
     puts "#{@board[5].join}"
     puts "#{@board[6].join}"
   end
+
 end

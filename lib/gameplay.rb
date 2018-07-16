@@ -8,12 +8,17 @@ class GamePlay
   def initialize
     @move_counter = 0
     @game_board = Board.new
+    @computer = Computer.new
   end
 
   def get_move
-    puts "Enter a letter(A-G) to place piece!"
-    move = gets.chomp.upcase
-    move_value(move)
+    if @move_counter.even?
+      puts "Enter a letter(A-G) to place piece!"
+      move = gets.chomp.upcase
+      move_value(move)
+    else
+      @computer.make_move
+    end
   end
 
   def move_value(move)
@@ -40,6 +45,7 @@ class GamePlay
     move = get_move
     round_n_round(6, move)
     @move_counter += 1
+    @game_board.see_board
   end
 
 end
