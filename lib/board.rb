@@ -1,23 +1,17 @@
 require "pry"
 
 class Board
-  attr_accessor :title_row,
-                :row_one,
-                :row_two,
-                :row_three,
-                :row_four,
-                :row_five,
-                :row_six,
+  attr_accessor :board,
                 :a_to_num
 
   def initialize
-    @title_row = ["A","B","C","D","E","F","G"]
-    @row_one = [".",".",".",".",".",".","."]
-    @row_two = [".",".",".",".",".",".","."]
-    @row_three = [".",".",".",".",".",".","."]
-    @row_four = [".",".",".",".",".",".","."]
-    @row_five = [".",".",".",".",".",".","."]
-    @row_six = [".",".",".",".",".",".","."]
+    @board = [["A","B","C","D","E","F","G"],
+            [".",".",".",".",".",".","."],
+            [".",".",".",".",".",".","."],
+            [".",".",".",".",".",".","."],
+            [".",".",".",".",".",".","."],
+            [".",".",".",".",".",".","."],
+            [".",".",".",".",".",".","."]]
     @a_to_num = {
       "A" => 0,
       "B" => 1,
@@ -30,12 +24,12 @@ class Board
   end
 
   def see_board
-    puts "#{@title_row.join}"
-    puts "#{@row_one.join}"
-    puts "#{@row_two.join}"
-    puts "#{@row_three.join}"
-    puts "#{@row_four.join}"
-    puts "#{@row_five.join}"
-    puts "#{@row_six.join}"
+    puts "#{@board[0].join}"
+    puts "#{@board[1].join}"
+    puts "#{@board[2].join}"
+    puts "#{@board[3].join}"
+    puts "#{@board[4].join}"
+    puts "#{@board[5].join}"
+    puts "#{@board[6].join}"
   end
 end

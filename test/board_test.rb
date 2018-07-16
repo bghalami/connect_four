@@ -13,13 +13,15 @@ class BoardTest < Minitest::Test
   def test_it_builds_empty_board
     board = Board.new
     empty_row = [".",".",".",".",".",".","."]
-    assert_equal ["A","B","C","D","E","F","G"], board.title_row
-    assert_equal empty_row, board.row_one
-    assert_equal empty_row, board.row_two
-    assert_equal empty_row, board.row_three
-    assert_equal empty_row, board.row_four
-    assert_equal empty_row, board.row_five
-    assert_equal empty_row, board.row_six
+    assert_equal ["A","B","C","D","E","F","G"], board.board[0]
+    assert_equal empty_row, board.board[1]
+    assert_equal empty_row, board.board[2]
+    assert_equal empty_row, board.board[3]
+    assert_equal empty_row, board.board[4]
+    assert_equal empty_row, board.board[5]
+    assert_equal empty_row, board.board[6]
   end
+
+  
 
 end
