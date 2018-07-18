@@ -1,4 +1,5 @@
 require "pry"
+require "./lib/gameplay"
 
 class ConnectFourRules
 
@@ -34,10 +35,10 @@ class ConnectFourRules
       menu(response)
     elsif choice == "E" || choice == "EXIT"
       puts "Goodbye!"
-      break
     else
       puts "That's hecka invalid. Try again"
       choices
+    end
   end
 
   def play

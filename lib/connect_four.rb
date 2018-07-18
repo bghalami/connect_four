@@ -1,4 +1,4 @@
-require "ConnectFourRules"
+require "./lib/connect_four_rules"
 
 connect_four = ConnectFourRules.new
 

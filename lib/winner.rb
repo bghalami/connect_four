@@ -2,7 +2,7 @@ require "pry"
 require "./lib/gameplay"
 
 class Winner
-  attr_reader :game_board, :clear_winner
+  attr_accessor :game_board, :clear_winner
   def initialize(game_board)
     @game_board = game_board
     @clear_winner = false
@@ -15,8 +15,8 @@ class Winner
         puts "X's Win!!!"
         @clear_winner = true
       elsif check.include?("OOOO")
-          puts "O's Win!!!"
-          @clear_winner = true
+        puts "O's Win!!!"
+        @clear_winner = true
       else
         horizontal_checker(row - 1)
       end
@@ -63,7 +63,7 @@ class Winner
 
   def tl_br_ultra_checker(row,column)
     #row = 1, column = 0
-    if row < 7
+    if row < 4
       sin = tl_br_checker(row,column)
       if sin == "X's Win!!!" || sin == "O's Win!!!"
         @clear_winner = true
@@ -107,7 +107,7 @@ class Winner
 
   def draw
     if @game_board.board[1].include?(".")
-      @clear_winner = false
+      @clear_winner
     else
       puts "It's a draw!!! WAOW!"
       @clear_winner = true
