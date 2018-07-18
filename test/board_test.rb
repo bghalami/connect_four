@@ -22,6 +22,6 @@ class BoardTest < Minitest::Test
     assert_equal empty_row, board.board[6]
   end
 
-  
+
 
 end
