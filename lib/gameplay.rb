@@ -14,13 +14,9 @@ class GamePlay
   end
 
   def get_move
-    if @move_counter.even?
       puts "Enter a letter(A-G) to place piece!"
       move = gets.chomp.upcase
       move_value(move)
-    else
-      @computer.make_move
-    end
   end
 
   def move_value(move)
@@ -55,8 +51,7 @@ class GamePlay
       check = @game_board.board[row].join
       if check.include?("XXXX")
         "X's Win!!!"
-      elsif
-        check.include?("OOOO")
+      elsif check.include?("OOOO")
           "O's Win!!!"
       else
         horizontal_checker(row - 1)
@@ -72,8 +67,7 @@ class GamePlay
       check = column_array.join
       if check.include?("XXXX")
         "X's Win!!!"
-      elsif
-      check.include?("OOOO")
+      elsif check.include?("OOOO")
         "O's Win!!!"
       else
         vertical_checker(column + 1)
@@ -98,7 +92,7 @@ class GamePlay
       end
     end
   end
-  
+
   def tl_br_ultra_checker(row,column)
     #row = 1, column = 0
     if row < 7
@@ -121,8 +115,7 @@ class GamePlay
       check = array.join
       if check.include?("XXXX")
         "X's Win!!!"
-      elsif
-        check.include?("OOOO")
+      elsif check.include?("OOOO")
         "O's Win!!!"
       else
         bl_tr_checker(row,column + 1)
