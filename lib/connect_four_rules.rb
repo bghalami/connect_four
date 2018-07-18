@@ -25,7 +25,10 @@ class ConnectFourRules
 
   def menu(choice)
     if choice == "P" || choice == "PLAY"
-      play
+      puts "Good Luck!"
+      puts "Would you like to play with the\n
+            (c)omputer or a (f)riend?"
+      computer_or_friend
     elsif choice == "I" || choice == "INSTRUCTIONS"
       puts "The goal of the game is connect 4 matching pieces."
       puts "You will take turns against a computer."
@@ -41,12 +44,31 @@ class ConnectFourRules
     end
   end
 
-  def play
-    puts "Good Luck!"
+  def computer_or_friend
+    response = gets.chomp.upcase
+    if response == "C" || response == "COMPUTER"
+      play_with_comp
+    elsif response == "F" || response == "FRIEND"
+      play_with_friend
+    else
+      puts "C or F...Not that hard..."
+      computer_or_friend
+  end
+
+  def play_with_comp
     until @game.winner.clear_winner == true
       @game.game_board.see_board
       @game.drop_piece
       @game.computer_turn
+      @game.anyone_win_yet
+    end
+    puts "Thanks for playing!!!"
+  end
+
+  def play_with_friend
+    until @game.winner.clear_winner == true
+      @game.game_board.see_board
+      @game.drop_piece
       @game.anyone_win_yet
     end
     puts "Thanks for playing!!!"
