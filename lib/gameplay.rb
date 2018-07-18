@@ -49,7 +49,7 @@ class GamePlay
     @move_counter += 1
     @game_board.see_board
   end
-
+#-------------------------------------------------------------]
   def horizontal_checker(row)
     if row > 0
       check = @game_board.board[row].join
@@ -91,14 +91,24 @@ class GamePlay
       check = array.join
       if check.include?("XXXX")
         "X's Win!!!"
-      elsif
-        check.include?("OOOO")
+      elsif check.include?("OOOO")
         "O's Win!!!"
       else
-        bl_tr_checker(row,column + 1)
+        tl_br_checker(row,column + 1)
       end
     end
-
+  end
+  
+  def tl_br_ultra_checker(row,column)
+    #row = 1, column = 0
+    if row < 7
+      sin = tl_br_checker(row,column)
+      if sin == "X's Win!!!" || sin == "O's Win!!!"
+        "Now we will kill the weak"
+      else
+        tl_br_ultra_checker(row + 1,column)
+      end
+    end
   end
 
   def bl_tr_checker(row,column)
@@ -121,28 +131,17 @@ class GamePlay
   end
 
   def bl_tr_ultra_checker(row,column)
+    #row = 6, column = 0
     if row > 0
       sin = bl_tr_checker(row,column)
       if sin == "X's Win!!!" || sin == "O's Win!!!"
         "Now we will kill the weak"
       else
-        ultra_checker(row - 1, column)
+        bl_tr_ultra_checker(row - 1,column)
       end
     end
   end
-
-  def bl_tr_ultra_checker(row,column)
-    if row < 7
-      sin = tl_br_checker(row, column)
-      if sin == "X's Win!!!" || sin == "O's Win!!!"
-        "Now we will kill the weak"
-      else
-        ultra_checker(row + 1, column)
-      end
-    end
-  end
-
-
+#------------------------------------------------------------]
 end
 
 gp = GamePlay.new
