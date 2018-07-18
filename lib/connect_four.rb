@@ -1,6 +1,6 @@
 require "pry"
 
-class ConnectFourRules
+class ConnectFour
 
   def initialize
     @game = GamePlay.new
