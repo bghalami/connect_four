@@ -41,7 +41,7 @@ class Winner
     end
   end
 
-  def tl_br_checker(row, column)
+  def top_left_to_bottom_right_column(row, column)
     if column < 4
       array = []
       array << @game_board.board[row][column]
@@ -56,24 +56,24 @@ class Winner
         puts "O's Win!!!"
         @clear_winner = true
       else
-        tl_br_checker(row,column + 1)
+        top_left_to_bottom_right_column(row,column + 1)
       end
     end
   end
 
-  def tl_br_ultra_checker(row,column)
+  def top_left_to_bottom_right_complete(row,column)
     #row = 1, column = 0
     if row < 4
-      sin = tl_br_checker(row,column)
-      if sin == "X's Win!!!" || sin == "O's Win!!!"
+      win_condition = top_left_to_bottom_right_column(row,column)
+      if win_condition == "X's Win!!!" || win_condition == "O's Win!!!"
         @clear_winner = true
       else
-        tl_br_ultra_checker(row + 1,column)
+        top_left_to_bottom_right_complete(row + 1,column)
       end
     end
   end
 
-  def bl_tr_checker(row,column)
+  def bottom_left_to_top_right_column(row,column)
     if column < 4
       array = []
       array << @game_board.board[row][column]
@@ -88,19 +88,19 @@ class Winner
         puts "O's Win!!!"
         @clear_winner = true
       else
-        bl_tr_checker(row,column + 1)
+        bottom_left_to_top_right_column(row,column + 1)
       end
     end
   end
 
-  def bl_tr_ultra_checker(row,column)
+  def bottom_left_to_top_right_complete(row,column)
     #row = 6, column = 0
     if row > 0
-      sin = bl_tr_checker(row,column)
-      if sin == "X's Win!!!" || sin == "O's Win!!!"
+      win_condition = bottom_left_to_top_right_column(row,column)
+      if win_condition == "X's Win!!!" || win_condition == "O's Win!!!"
         @clear_winner = true
       else
-        bl_tr_ultra_checker(row - 1,column)
+        bottom_left_to_top_right_complete(row - 1,column)
       end
     end
   end

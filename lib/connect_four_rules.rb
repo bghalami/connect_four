@@ -61,8 +61,13 @@ class ConnectFourRules
     until @game.winner.clear_winner == true
       @game.game_board.see_board
       @game.drop_piece
-      @game.computer_turn
       @game.anyone_win_yet
+      if @game.winner.clear_winner == true
+        next
+      else
+        @game.computer_turn
+        @game.anyone_win_yet
+      end
     end
     puts "Would you like to play again? (Y/N)"
     play_again
@@ -81,8 +86,6 @@ class ConnectFourRules
   def play_again
     response = gets.chomp.upcase
     if response == "Y"
-      @game.game_board.reset_board
-      @game.winner.clear_winner = false
       new_game
     elsif response == "N"
       puts "Thanks for playing!"
@@ -92,6 +95,8 @@ class ConnectFourRules
   end
 
   def new_game
+    @game.game_board.reset_board
+    @game.winner.clear_winner = false
     intro
     choices
   end
