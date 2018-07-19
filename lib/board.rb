@@ -26,13 +26,9 @@ class Board
   end
 
   def see_board
-    puts "#{@board[0].join}"
-    puts "#{@board[1].join}"
-    puts "#{@board[2].join}"
-    puts "#{@board[3].join}"
-    puts "#{@board[4].join}"
-    puts "#{@board[5].join}"
-    puts "#{@board[6].join}"
+    @board.each do |row|
+      puts row.join
+    end
   end
 
   def reset_board

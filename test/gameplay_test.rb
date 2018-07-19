@@ -22,7 +22,7 @@ class GamePlayTest < Minitest::Test
   end
 
   def test_dropping_piece_falls_in_the_right_place
-    @gp.round_n_round(6,0)
+    @gp.stacking_pieces(6,0)
     assert_equal "X", @gp.game_board.board[6][0]
   end
 
@@ -31,8 +31,8 @@ class GamePlayTest < Minitest::Test
   end
 
   def test_it_stacks_guesses
-    @gp.round_n_round(6,0)
-    @gp.round_n_round(6,0)
+    @gp.stacking_pieces(6,0)
+    @gp.stacking_pieces(6,0)
     assert_equal "X", @gp.game_board.board[6][0]
     assert_equal "X", @gp.game_board.board[5][0]
   end

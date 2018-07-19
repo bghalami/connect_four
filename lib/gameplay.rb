@@ -43,12 +43,12 @@ class GamePlay
     end
   end
 
-  def round_n_round(number,drop_move)
+  def stacking_pieces(number,drop_column)
     if number > 0
-      if @game_board.board[number][drop_move] == "."
-        @game_board.board[number][drop_move] = x_or_o
+      if @game_board.board[number][drop_column] == "."
+        @game_board.board[number][drop_column] = x_or_o
       else
-        round_n_round(number - 1,drop_move)
+        stacking_pieces(number - 1,drop_column)
       end
     else
       puts "Invalid Move. Try again."
@@ -58,14 +58,14 @@ class GamePlay
 
   def computer_turn
     move = @computer.make_move
-    round_n_round(6, move)
+    stacking_pieces(6, move)
     @move_counter += 1
     @game_board.see_board
   end
 
   def drop_piece
     move = get_move
-    if round_n_round(6, move) == "Invalid"
+    if stacking_pieces(6, move) == "Invalid"
       drop_piece
     else
       @move_counter += 1

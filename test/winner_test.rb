@@ -32,13 +32,27 @@ class WinnerTest < Minitest::Test
 
   def test_bottom_left_to_top_right_win
     assert_equal false, @winner.clear_winner
-      @winner.bl_tr_ultra_checker(6,0)
+      @winner.bottom_left_to_top_right_complete(6,0)
     assert_equal true, @winner.clear_winner
   end
 
   def test_top_left_to_bottom_right_win
     assert_equal false, @winner.clear_winner
-      @winner.tl_br_ultra_checker(1,0)
+      @winner.top_left_to_bottom_right_complete(1,0)
+    assert_equal true, @winner.clear_winner
+  end
+
+  def test_it_can_end_in_draw
+    @winner.game_board.board = [
+      ["A","B","C","D","E","F","G"],
+      ["X","X","O","X","X","O","O"],
+      ["O","X","O","O","X","X","X"],
+      ["O","O","X","X","X","O","O"],
+      ["X","X","O","O","X","X","X"],
+      ["X","X","O","X","X","O","O"],
+      ["X","X","O","O","X","X","X"]
+    ]
+    @winner.draw
     assert_equal true, @winner.clear_winner
   end
 
