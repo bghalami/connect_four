@@ -5,4 +5,4 @@ require "./lib/winner"
 class WinnerTest < Minitest::Test
 
 
-end 
+end
