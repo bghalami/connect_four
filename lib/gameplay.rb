@@ -76,8 +76,8 @@ class GamePlay
   def anyone_win_yet
     @winner.horizontal_checker(6)
     @winner.vertical_checker(0)
-    @winner.tl_br_ultra_checker(1,0)
-    @winner.bl_tr_ultra_checker(6,0)
+    @winner.top_left_to_bottom_right_complete(1,0)
+    @winner.bottom_left_to_top_right_complete(6,0)
     @winner.draw
   end
 end

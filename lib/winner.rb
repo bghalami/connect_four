@@ -64,8 +64,8 @@ class Winner
   def top_left_to_bottom_right_complete(row,column)
     #row = 1, column = 0
     if row < 4
-      sin = top_left_to_bottom_right_column(row,column)
-      if sin == "X's Win!!!" || sin == "O's Win!!!"
+      win_condition = top_left_to_bottom_right_column(row,column)
+      if win_condition == "X's Win!!!" || win_condition == "O's Win!!!"
         @clear_winner = true
       else
         top_left_to_bottom_right_complete(row + 1,column)
@@ -96,8 +96,8 @@ class Winner
   def bottom_left_to_top_right_complete(row,column)
     #row = 6, column = 0
     if row > 0
-      sin = bottom_left_to_top_right_column(row,column)
-      if sin == "X's Win!!!" || sin == "O's Win!!!"
+      win_condition = bottom_left_to_top_right_column(row,column)
+      if win_condition == "X's Win!!!" || win_condition == "O's Win!!!"
         @clear_winner = true
       else
         bottom_left_to_top_right_complete(row - 1,column)
