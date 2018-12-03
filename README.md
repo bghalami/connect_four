@@ -1,4 +1,6 @@
 # Connect Four!
+  Join the sensation sweeping the nation, playing Connect Four in your computers terminal! WOW!  
+  This was created from a deep need to pass my project.  
 
 ## Let's Get Setup!!!
   1. To play, clone this repo to the directory of your choosing.  
