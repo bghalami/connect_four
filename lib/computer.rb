@@ -1,5 +1,3 @@
-require "pry"
-
 class Computer
 
   def make_move
