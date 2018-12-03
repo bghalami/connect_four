@@ -1,8 +1,7 @@
-require "pry"
 require "./lib/gameplay"
 
 class ConnectFourRules
-
+###All user input should go in seperate file
   def initialize
     @game = GamePlay.new
   end
